@@ -2,6 +2,8 @@ import './App.css';
 import Main from './layout/main';
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import SignUp from './SignUp';
+
 function App() {
   return (
     <div className="App">
@@ -13,8 +15,10 @@ function App() {
         <main>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Main></Main>}></Route>
-            </Routes></BrowserRouter>
+              <Route path="/" element={<Main />} />
+              <Route path='/sign-up' element={<SignUp />} />
+            </Routes>
+          </BrowserRouter>
         </main>
       </div>
 
