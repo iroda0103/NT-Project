@@ -1,43 +1,41 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { MdAreaChart, MdCategory } from "react-icons/md";
-import { IoTimerOutline,  } from "react-icons/io5";
-import { AiOutlineFieldTime,AiOutlineHome,AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import React from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { MdMenu,MdClose,MdHome, MdAreaChart, MdCategory, MdCalendarToday, MdOutlineDateRange } from 'react-icons/md'
 
 
 const Header = () => {
-    const [active, setActive] = useState(false);
+    const[active,setActive]=useState(false)
     const activateNav = () => {
-        setActive(!active);
+        setActive(!active)
+        
     }
     return (
-        <div className={active ? 'header' : 'header-mobile'}>
-            <div className="menu-icon" onClick={activateNav}>
-
-
-                {!active ? <AiOutlineMenu className="menu" /> : <AiOutlineClose className="close-icon"/>}
+        <div className={active ? 'header':'header-mobile'}>
+            <div className='menu-icon' onClick={activateNav}>
+                {!active? <MdMenu className='menu'/> : <MdClose className='close-icon'/>}
+                
             </div>
             <nav>
-                <ul className={active ? 'ul=item' : 'ul-item oicon'}>
+                <ul className={active ? 'ul-item':'ul-item oicon'}>
                     <li>
-                        <AiOutlineHome className="nav-icon"/>
+                        <MdHome className="nav-icon" />
                         <Link to=''>Asosiy</Link>
                     </li>
                     <li>
-                        <MdAreaChart className="nav-icon"/>
+                        <MdAreaChart className="nav-icon" />
                         <Link to=''>Hudud</Link>
                     </li>
                     <li>
-                        <MdCategory className="nav-icon"/>
+                        <MdCategory className="nav-icon" />
                         <Link to=''>Kategoriya</Link>
                     </li>
                     <li>
-                        <IoTimerOutline className="nav-icon"/>
+                        <MdCalendarToday className="nav-icon" />
                         <Link to=''>Vaqtdan</Link>
                     </li>
                     <li>
-                        <AiOutlineFieldTime className="nav-icon"/>
+                        <MdOutlineDateRange className="nav-icon" />
                         <Link to=''>Vaqtgacha</Link>
                     </li>
                 </ul>
@@ -45,4 +43,11 @@ const Header = () => {
         </div>
     )
 }
-export default Header;
+
+export default Header
+
+
+
+
+
+
