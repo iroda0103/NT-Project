@@ -1,0 +1,21 @@
+
+button{
+    /* width:60px; */
+padding:10px 15px;
+border: 0;
+border-radius: 3px;
+margin: 10px;
+background-color: #fff;
+/* color: rgb(236, 233, 229); */
+border: 2px solid #8dfff5;
+/* border: 2px solid yellow; */
+color:#8dfff5;
+font-weight: 600;
+/* color: yellow; */
+}
+button:hover{
+    transform: scale(1.1);
+    /* background: #8dfff5; */
+    /* border: 2px solid #8dfff5;
+    color:#1bf1e0; */
+}

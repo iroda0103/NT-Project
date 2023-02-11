@@ -1,0 +1,59 @@
+
+.card{
+    /* padding-top: 10px; */
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    display: inline-block;
+   border-radius: 4px;
+   text-align: center;
+   max-width: 250px;
+}
+img{
+    width: 250px;
+    height: 200px;
+}
+h3{
+    font-size: 20px;
+padding: 14px;
+padding-left: 30px;
+}
+p{
+    font-size: 17px;
+}
+h3,p{
+    /* max-width: 200px; */
+    text-align: left;
+    min-width: 140px;
+    width: 100%;
+    flex-grow: 1;
+    color:#fdf7f0;
+}
+.card:hover{
+transform: scale(1.06);
+/* transform: translateY(-25px); */
+}
+.card:hover .img{
+    transform: translateY(-82px);
+}
+/* .card:hover .col{
+    opacity: 0.3;
+background-color: rgb(166, 169, 172);
+
+} */
+.col{
+    padding: 9px;
+  
+}
+.manzil{
+   position: relative;
+   padding-left: 35px;
+   text-align: left;
+}
+.locationIcon{
+    position: absolute;
+    left: 9px;
+}
+.col .manzil .locationIcon svg{
+    color: #fff;
+
+}

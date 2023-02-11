@@ -1,0 +1,7 @@
+@import "./style/index.scss";
+
+.App{
+  min-height: 100vh;
+height: 100vh;
+}
+
