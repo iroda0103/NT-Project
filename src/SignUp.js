@@ -21,11 +21,11 @@ const SignUp = () => {
                 <label>Parol</label>
                 <input />
             </div>
-            <div className="form-item">
+            <div className="form-item"> 
                 <label>Parolni tasdiqlash</label>
                 <input />
             </div>
-        </div>
+        </div> 
 
     </form>
 }
