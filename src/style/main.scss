@@ -17,6 +17,9 @@ main {
     padding-right:3% ;
 }
 .search {
+   &::placeholder{
+    color:#fff;
+   }
     border: 0;
    width: 90%;
     padding: 10px 15px;
@@ -52,8 +55,9 @@ label .search:focus {
 }
 
 .active_button {
-    border: 2px solid rgb(253, 152, 236);
-    color: rgb(252, 23, 202);
+    border: 0;
+        color: rgb(252, 23, 202);
+     border-bottom: 1px solid #ddd;
     box-shadow: 0px 0px 0px 1px rgb(220, 43, 226);
 }
 

@@ -16,7 +16,8 @@ function Main() {
     const [filterData, setFilterData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [typeData, setTypeData] = useState([]);
-
+    const [activBtn, setactivBtn] = useState("");
+    const [isActiv, setActiv] = useState(false);
     // const datali=useContext(DataContext);
     useEffect(() => {
         fetch("http://188.225.31.249:3001/findings")
@@ -30,61 +31,60 @@ function Main() {
             })
             .catch((error) => console.error(error));
     }, []);
-    function active(event) {
-        let filterElem;
-        console.log(event.target.innerText, "hhhhh");
-        filterElem = event.target.innerText;
-        event.target.classList.toggle("active_button");
-
-        console.log(typeData)
-        let b = [];
-        if (filterElem == "Topilmalar") {
-            b = data.filter((item) => item.title.includes("top"));
-            document.querySelector(".yoqotilma").classList.remove("active_button")
-        }
-        if (filterElem == "Yo'qotilmalar") {
-            document.querySelector(".topilma").classList.remove("active_button")
-            b = data.filter((item) => item.title.includes("qot"));
-        }
-        console.log(event.target, "target")
-        if (!event.target.matches('active_button') && b.length==0) {
-            // b=data;
-            console.log("lll", b)
-        }
-        setTypeData(b);
-        setFilterData(b)
-        console.log(b, "assalom", typeData);
+useEffect(()=>{
+    let filterData=[];
+    console.log("filterdata",activBtn,"ddsdsds")
+    if(activBtn=="one"){
+        filterData=data.filter((item) => item.type=="topdim");
     }
+    if(activBtn=="two"){
+        filterData=data.filter((item) => item.type.includes("qot"));
+    }
+    if(activBtn==""){
+        filterData=data;
+    }
+    console.log(JSON.stringify(filterData),"jsonjj")
+    setFilterData(filterData)
+},[activBtn])
+  
+   
 
     if (loading) {
         return <Loading />
     }
- 
     return <div className="main-topilmalar">
- 
-
         <div className='panel'>
-            <label for="search" className="search-input">
-                <input type="search" id="search" className="search" placeholder="search" onInput={(event) => {
+            <label htmlFor="search" className="search-input">
+                <input type="search" id="search" className="search" placeholder="Search" onInput={(event) => {
                     console.log(event.target.value)
                     let a = [];
-                    a = typeData.filter((item) => item.title.includes(event.target.value));
+                    a = filterData.filter((item) => item.title.includes(event.target.value));
+                    if(event.target.value==""){
+                        console.log("ksdjsdjsdks");
+                        a=typeData;
+                    }
                     setFilterData(a)
                 }} />
             </label>
-
             <div>
-                <button className="topilma" onClick={active}>Topilmalar</button>
-                <button onClick={active} className="yoqotilma">Yo'qotilmalar</button>
+                <button onClick={() => {
+                    console.log(activBtn,"onecha")
+                    setactivBtn((activBtn == "one") ? "" : "one");
+                    console.log(activBtn,"one")
+                }
+                } className={(activBtn == "one") ? "active_button" : ""}>Topilmalar</button>
+                <button onClick={() => {
+                    console.log(activBtn,"twocha")
+                    setactivBtn((activBtn == "two") ? "" : "two")
+                    console.log(activBtn,"two")
+                }}
+                    className={(activBtn == "two") ? "active_button" : ""}>Yo'qotilmalar</button>
             </div>
         </div>
         <div className="row">
             {
                 filterData.map((item, index) => {
-                    return <>
-                        <Card users={item} key={index}></Card>
-                    </>
-
+                    return <Card users={item} key={index}></Card>
                 })
             }
 
