@@ -45,6 +45,7 @@ useEffect(()=>{
     }
     console.log(JSON.stringify(filterData),"jsonjj")
     setFilterData(filterData)
+    setTypeData(filterData)
 },[activBtn])
   
    
@@ -61,7 +62,7 @@ useEffect(()=>{
                     a = filterData.filter((item) => item.title.includes(event.target.value));
                     if(event.target.value==""){
                         console.log("ksdjsdjsdks");
-                        a=typeData;
+                        a=typeData
                     }
                     setFilterData(a)
                 }} />
