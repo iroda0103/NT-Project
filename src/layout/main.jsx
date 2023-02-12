@@ -11,7 +11,9 @@ import style from "./main.module.css";
 import sass from "../App.css";
 // import {DataContext} from "../context/datacontext.js";
 // import UserProvider from "../context/datacontext.js";
-function Main() {
+function Main(props) {
+  const  {children}=props
+  console.log(JSON.stringify(children),"children")
     const [data, setData] = useState([]);
     const [filterData, setFilterData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -56,7 +58,7 @@ useEffect(()=>{
     return <div className="main-topilmalar">
         <div className='panel'>
             <label htmlFor="search" className="search-input">
-                <input type="search" id="search" className="search" placeholder="Search" onInput={(event) => {
+                <input type="search" id="search" className="search" placeholder={children.Qidiruv} onInput={(event) => {
                     console.log(event.target.value)
                     let a = [];
                     a = filterData.filter((item) => item.title.includes(event.target.value));
@@ -73,13 +75,13 @@ useEffect(()=>{
                     setactivBtn((activBtn == "one") ? "" : "one");
                     console.log(activBtn,"one")
                 }
-                } className={(activBtn == "one") ? "active_button" : ""}>Topilmalar</button>
+                } className={(activBtn == "one") ? "active_button" : ""}>{children.Topilmalar}</button>
                 <button onClick={() => {
                     console.log(activBtn,"twocha")
                     setactivBtn((activBtn == "two") ? "" : "two")
                     console.log(activBtn,"two")
                 }}
-                    className={(activBtn == "two") ? "active_button" : ""}>Yo'qotilmalar</button>
+                    className={(activBtn == "two") ? "active_button" : ""}>{children.Yoqotilmalar}</button>
             </div>
         </div>
         <div className="row">

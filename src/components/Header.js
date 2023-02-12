@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { MdMenu,MdClose,MdHome, MdAreaChart, MdCategory, MdCalendarToday, MdOutlineDateRange } from 'react-icons/md'
 
 
-const Header = () => {
+const Header = (props) => {
+    const {children}=props
     const[active,setActive]=useState(false)
     const activateNav = () => {
         setActive(!active)
@@ -20,23 +21,23 @@ const Header = () => {
                 <ul className={active ? 'ul-item':'ul-item oicon'}>
                     <li>
                         <MdHome className="nav-icon" />
-                        <Link to=''>Asosiy</Link>
+                        <Link to=''>{children.Asosiy}</Link>
                     </li>
                     <li>
                         <MdAreaChart className="nav-icon" />
-                        <Link to=''>Hudud</Link>
+                        <Link to=''>{children.Hudud}</Link>
                     </li>
                     <li>
                         <MdCategory className="nav-icon" />
-                        <Link to=''>Kategoriya</Link>
+                        <Link to=''>{children.Kategoriya}</Link>
                     </li>
                     <li>
                         <MdCalendarToday className="nav-icon" />
-                        <Link to=''>Vaqtdan</Link>
+                        <Link to=''>{children.Vaqtdan}</Link>
                     </li>
                     <li>
                         <MdOutlineDateRange className="nav-icon" />
-                        <Link to=''>Vaqtgacha</Link>
+                        <Link to=''>{children.Vaqtgacha}</Link>
                     </li>
                 </ul>
             </nav>

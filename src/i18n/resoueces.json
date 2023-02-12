@@ -1,0 +1,41 @@
+{
+    "en": {
+        "translation": {
+            "SayHello": "Welcome to React and react-i18next",
+            "Qidiruv":"Search",
+            "Topilmalar": "Findings",
+            "Yoqotilmalar": "Losses",
+            "Asosiy":"Main",
+            "Hudud":"",
+            "Kategoriya":"Category",
+            "Vaqtdan":"From time",
+            "Vaqtgacha":"Until the time"
+        }
+    },
+    "uz": {
+        "translation": {
+            "SayHello": "salom",
+            "Qidiruv":"Qidiruv",
+            "Topilmalar": "Topilmalar",
+            "Yoqotilmalar": "Yoqotilmalar",
+            "Asosiy":"Asosiy",
+            "Hudud":"Hudud",
+            "Kategoriya":"Kategoriya",
+            "Vaqtdan":"Vaqtdan",
+            "Vaqtgacha":"Vaqtgacha"
+        }
+    },
+    "ru": {
+        "translation": {
+            "SayHello": "привет",
+            "Qidiruv":"Поиск",
+            "Topilmalar": "Выводы",
+            "Yoqotilmalar": "Убытки",
+            "Asosiy":"Основной",
+            "Hudud":"Территория",
+            "Kategoriya":"Категория",
+            "Vaqtdan":"От времени",
+            "Vaqtgacha":"До времени"
+        }
+    }
+}
