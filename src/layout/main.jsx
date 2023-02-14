@@ -1,12 +1,7 @@
-// import React from "react";
-// function Main(){
-//     return <div>salom</div>
-// }
-// export default Main
-
 import React, { useContext, useState, useEffect } from "react";
 import Card from "../components/card.jsx";
 import Loading from "../components/loading.jsx";
+import Navbar from "../components/Navbar.jsx";
 import style from "./main.module.css";
 import sass from "../App.css";
 // import {DataContext} from "../context/datacontext.js";
@@ -28,7 +23,7 @@ function Main(props) {
                 setData(data);
                 setFilterData(data);
                 setTypeData(data);
-                setLoading(false);
+                setLoading(true);
                 console.log("keldi", data)
             })
             .catch((error) => console.error(error));
@@ -52,10 +47,11 @@ useEffect(()=>{
   
    
 
-    if (loading) {
+    if (!loading) {
         return <Loading />
     }
     return <div className="main-topilmalar">
+        
         <div className='panel'>
             <label htmlFor="search" className="search-input">
                 <input type="search" id="search" className="search" placeholder={children.Qidiruv} onInput={(event) => {
