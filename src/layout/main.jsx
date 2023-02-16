@@ -1,106 +1,53 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/card.jsx";
 import Loading from "../components/loading.jsx";
 import Navbar from "../components/Navbar.jsx";
 import axios from "axios";
 import style from "./main.module.css";
 import sass from "../App.css";
-// import {DataContext} from "../context/datacontext.js";
-// import UserProvider from "../context/datacontext.js";
+import { useLocation, useNavigate } from "react-router-dom";
 function Main(props) {
-  const  {children}=props
-  console.log(JSON.stringify(children),"children")
+    const navigate = useNavigate();
+    const location=useLocation();
+    console.log(location,"location")
+    const searchParams=new URLSearchParams(location.search)
+    const search=searchParams.get("search");
+    console.log(search);
+    const { children } = props
     const [data, setData] = useState([]);
-    const [filterData, setFilterData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [typeData, setTypeData] = useState([]);
-    const [activBtn, setactivBtn] = useState("");
-    const [isActiv, setActiv] = useState(false);
-    // const datali=useContext(DataContext);
+    let timer;
+    function handleSearch(event) {
+        clearInterval(timer)
+        timer = setTimeout(() => {
+            console.log(event.target.value)
+            navigate({
+                search: `?search=${event.target.value}`
+            })}, 2000)
+    }
     useEffect(() => {
-        fetch("http://188.225.31.249:3001/findings")
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-                setFilterData(data);
-                setTypeData(data);
-                setLoading(true);
-                console.log("keldi", data)
-            })
+        axios(`http://188.225.31.249:3001/findings`,{
+            params:{search}
+        }).then((res) => {
+            setData(res.data);
+            console.log("keldi", data)
+        })
             .catch((error) => console.error(error));
-    }, []);
-//     useEffect(()=>{
-// axios.post("http://188.225.31.249:8000/api/v1/register/",{
-//     "username": [
-//       "NT"
-//     ],
-//     "password": [
-//       "12334"
-//     ],
-//     "password2": [
-//       "12334"
-//     ]
-//   }).then((data)=>{
-//     console.log(data.data,"asssalom")
-// })
-//     })
-useEffect(()=>{
-    let filterData=[];
-    console.log("filterdata",activBtn,"ddsdsds")
-    if(activBtn=="one"){
-        filterData=data.filter((item) => item.type=="topdim");
-    }
-    if(activBtn=="two"){
-        filterData=data.filter((item) => item.type.includes("qot"));
-    }
-    if(activBtn==""){
-        filterData=data;
-    }
-    console.log(JSON.stringify(filterData),"jsonjj")
-    setFilterData(filterData)
-    setTypeData(filterData)
-},[activBtn])
-  
-   
-
-    if (!loading) {
-        return <Loading />
-    }
+    }, [search]);
+// const searchValue=()=>(location.search=="?search=")?"":search;//
     return <div className="main-topilmalar">
-        
         <div className='panel'>
             <label htmlFor="search" className="search-input">
-                <input type="search" id="search" className="search" placeholder={children.Qidiruv} onInput={(event) => {
-                    console.log(event.target.value)
-                    let a = [];
-                    a = filterData.filter((item) => item.title.includes(event.target.value));
-                    if(event.target.value==""){
-                        console.log("ksdjsdjsdks");
-                        a=typeData
-                    }
-                    setFilterData(a)
-                }} />
+                <input type="search" id="search" className="search" defaultValue={search} placeholder={children.Qidiruv} onInput={handleSearch} />
             </label>
             <div>
-                <button onClick={() => {
-                    console.log(activBtn,"onecha")
-                    setactivBtn((activBtn == "one") ? "" : "one");
-                    console.log(activBtn,"one")
-                }
-                } className={(activBtn == "one") ? "active_button" : ""}>{children.Topilmalar}</button>
-                <button onClick={() => {
-                    console.log(activBtn,"twocha")
-                    setactivBtn((activBtn == "two") ? "" : "two")
-                    console.log(activBtn,"two")
-                }}
-                    className={(activBtn == "two") ? "active_button" : ""}>{children.Yoqotilmalar}</button>
+                <button>{children.Topilmalar}</button>
+                <button>{children.Yoqotilmalar}</button>
             </div>
         </div>
         <div className="row">
-            {
-                filterData.map((item, index) => {
-                    return <Card users={item} key={index}></Card>
-                })
+            {data.map((item, index) => {
+                return <Card users={item} key={index}></Card>
+            })
             }
 
         </div>

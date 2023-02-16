@@ -41,7 +41,7 @@ const SignUp = () => {
         console.log(username, email)
     }
 
-    return <form className="sign-up-form" onSubmit={Submited}>
+    return  <form className="sign-up-form" onSubmit={Submited}>
         <div className="sign-up-form__content">
             <h2>Ro'yxatdan o'tish</h2>
             <div className="form-item">

@@ -1,12 +1,12 @@
 export function setAccessToken(accessToken){
-    localStorage("accessToken",accessToken);
+  return  localStorage.setItem("accessToken",accessToken);
 }
 export function getAccessToken(){
-    localStorage.getItem("accessToken");
+  return  localStorage.getItem("accessToken");
 }
 export function setRefreshToken(refreshToken){
-    localStorage.setItem("refreshToken",refreshToken);
+   return localStorage.setItem("refreshToken",refreshToken);
 }
 export function getRefreshToken(){
-    localStorage.getItem("refreshToken");
+   return localStorage.getItem("refreshToken");
 }

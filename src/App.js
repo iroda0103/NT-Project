@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/Sign-in";
 function App() {
   return (
-    <div>
+    <div className="home">
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path='/sign-up' element={<SignUp />} />

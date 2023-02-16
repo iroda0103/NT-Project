@@ -23,11 +23,14 @@ function Navbar(props) {
         <div className="logo">logo</div>
         <div className="display">
             <ul className="display navbar__list">
-                <li>Topib oldim </li>
-                <li>Yo'qotdim</li>
+                <li> <Link to='/sign-in'>Topib oldim</Link> </li>
+                <li><Link to='/sign-in'>Yo'qotdim</Link></li>
+                 
                 {/* <li onClick={signUp}>Sign up</li> */}
-                <Link to='/sign-up'>Sign up</Link>
-                <Link to='/sign-in'>Sign in</Link>
+                <li><Link to='/sign-up'>Sign up</Link></li>
+                <li><Link to='/sign-in'>Sign in</Link></li>
+                
+                
               
             </ul>
             <div className="display">

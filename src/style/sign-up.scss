@@ -7,7 +7,7 @@
 }
 
 .sign-up-form__content {
-    width: 21   0px;
+    width: 21 0px;
     padding: 20px;
     border: 1px solid #e7f3e5;
     color: green;
@@ -22,14 +22,34 @@
     display: flex;
     flex-direction: column;
 }
-.register-page{
+
+.register-page {
+    background-image: url(../assets/canoe-resting-on-small-beach.jpg);
+    background-size: cover;
+    background-position: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.register-page form{
-    max-width: 400px;
+
+.register-page form {
+    max-width: 300px;
     width: 100%;
+    color:#fff;
 }
 
+
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+  #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }

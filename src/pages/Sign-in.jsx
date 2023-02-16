@@ -14,14 +14,13 @@ function SignIn() {
          username,
          password
         }).then((res)=>{
-            console.log(res,"login",res.access);
+            console.log(res,"login",res.data.refresh,res.data.access);
             document.querySelector(".answer").innerText="";
-            // console.log(res.data.access,res.data.refresh,"ssajasas")
+            setAccessToken(res.data.access);
+            setRefreshToken(res.data.refresh);
             navigate('/')
-            // setAccessToken(res.data.access);
-            // setRefreshToken(res.data.refresh);
-        }).catch((err)=>{
-            console.log(err,"Bunday loginli foydalanuvchi mavjud emas");
+        }).catch(()=>{
+            console.log("Bunday loginli foydalanuvchi mavjud emas");
             document.querySelector(".answer").innerText="Bunday loginli foydalanuvchi mavjud emas";
         })
         console.log('Received values of form: ', values);

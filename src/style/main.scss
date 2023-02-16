@@ -1,3 +1,24 @@
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #03073f rgba(7, 7, 7, 0.247);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(7, 7, 7, 0.247);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #878788;
+    opacity: 0.8;
+    border-radius: 20px;
+    border: 3px solid rgba(7, 7, 7, 0.247);
+}
 main {
     flex-grow: 1;
     margin-top: 100px;
@@ -10,7 +31,7 @@ main {
 }
 
 .main-topilmalar {
-    padding: 35px 40px;
+    padding: 0px 40px;
     padding-top: 0;
 }
 .search-input{
@@ -53,7 +74,7 @@ label .search:focus {
     flex-wrap: wrap;
     justify-content: center;
     overflow: auto;
-    max-height: 505px;
+    max-height: 405px;
 }
 
 .active_button {
