@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import Card from "../components/card.jsx";
 import Loading from "../components/loading.jsx";
 import Navbar from "../components/Navbar.jsx";
+import axios from "axios";
 import style from "./main.module.css";
 import sass from "../App.css";
 // import {DataContext} from "../context/datacontext.js";
@@ -28,6 +29,21 @@ function Main(props) {
             })
             .catch((error) => console.error(error));
     }, []);
+//     useEffect(()=>{
+// axios.post("http://188.225.31.249:8000/api/v1/register/",{
+//     "username": [
+//       "NT"
+//     ],
+//     "password": [
+//       "12334"
+//     ],
+//     "password2": [
+//       "12334"
+//     ]
+//   }).then((data)=>{
+//     console.log(data.data,"asssalom")
+// })
+//     })
 useEffect(()=>{
     let filterData=[];
     console.log("filterdata",activBtn,"ddsdsds")

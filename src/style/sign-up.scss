@@ -12,7 +12,7 @@
     border: 1px solid #e7f3e5;
     color: green;
     background-color: #e7f3e5;
-}bpx
+}
 
 .sign-up-form__content h2 {
     text-align: center;
@@ -22,3 +22,14 @@
     display: flex;
     flex-direction: column;
 }
+.register-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.register-page form{
+    max-width: 400px;
+    width: 100%;
+}
+

@@ -27,7 +27,8 @@ function Navbar(props) {
                 <li>Yo'qotdim</li>
                 {/* <li onClick={signUp}>Sign up</li> */}
                 <Link to='/sign-up'>Sign up</Link>
-                <li>Sign in</li>
+                <Link to='/sign-in'>Sign in</Link>
+              
             </ul>
             <div className="display">
                 <span>dark</span>
