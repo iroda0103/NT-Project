@@ -21,19 +21,19 @@
 .circle .circle3{
     animation-delay: 0.4s;
 }
-@keyframes load{
-   0%,
-   50%,
-   100%{
-    transform: scale(1);
-    filter: blur(0px);
-   }
-   25%{
-    transform: scale(0.6);
-   }
-75%{
-    transform: scale(1.4);
-    background-color: #93f8e2;
-}
+    @keyframes load{
+    0%,
+    50%,
+    100%{
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    25%{
+        transform: scale(0.6);
+    }
+    75%{
+        transform: scale(1.4);
+        background-color: #93f8e2;
+    }
 
-}
+    }

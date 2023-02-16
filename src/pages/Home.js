@@ -7,9 +7,9 @@ const Home = () => {
         <div className="home">
             <Header />
             <main><Main></Main></main>
-           
+        
         </div>
-       
+    
         </React.Fragment>
     )
 }

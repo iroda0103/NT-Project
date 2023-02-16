@@ -4,9 +4,9 @@ import  { FaLocationArrow } from 'react-icons/fa';
 import {GrLocation} from 'react-icons/gr';
 // GrLocation
 const Card = function (props) {
-
     
-     const {users } = props;
+    
+    const {users } = props;
     //  console.log(users,"usercha")
     return <div className={style.card}>
             <img src={users.image} className="img" />
